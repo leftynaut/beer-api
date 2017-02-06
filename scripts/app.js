@@ -1,5 +1,5 @@
 angular
-    .module('webapp', ['ngMaterial', 'ngMessages', 'ngResource'])
+    .module('webapp', ['ngMaterial', 'ngMessages', 'ngResource', 'md.data.table'])
     .controller('AppCtrl', ($scope, $http, $resource) => {
       $http({
         method : "GET",

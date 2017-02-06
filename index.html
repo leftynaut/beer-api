@@ -6,6 +6,7 @@
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
 		<link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.3/angular-material.css">
+		<link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css"/>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
@@ -13,6 +14,7 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 		<script type="text/javascript" src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.3/angular-material.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.js"></script>
+		<script type="text/javascript" src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
 
 		<link rel="stylesheet" href="scripts/styles.css">
 		<script type="text/javascript" src="scripts/app.js"></script>
@@ -20,18 +22,38 @@
 
 	<body ng-cloak layout="column" ng-controller="AppCtrl">
 		<md-toolbar layout="row" class="md-toolbar-tools">
-			<md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList()"
+			<!-- <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList()"
 								 aria-label="Show User List">
 				<md-icon md-svg-icon="menu"></md-icon>
-			</md-button>
+			</md-button> -->
 			<h1>Brews</h1>
 		</md-toolbar>
 
 		<div flex layout="row">
-			<md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')"
+			<!-- <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')"
 									md-component-id="left" ng-click="app.toggleList()">
-			</md-sidenav>
+			</md-sidenav> -->
 			<md-content flex id="content">
+				<md-table-container>
+				  <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
+				    <thead md-head md-order="query.order" md-on-reorder="getBeers">
+				      <tr md-row>
+								<th md-column md-numeric>ID</th>
+				        <th md-column md-order-by="nameToLower"><span>Name</span></th>
+				        <th md-column md-numeric md-order-by="abv.value"><span>ABV</span></th>
+				        <th md-column md-numeric>IBU</th>
+				      </tr>
+				    </thead>
+				    <tbody md-body>
+				      <tr md-row md-select="beer" md-select-id="name" md-auto-select ng-repeat="beer in brewList">
+				        <td md-cell>{{beer.id}}</td>
+				        <td md-cell>{{beer.name}}</td>
+				        <td md-cell>{{beer.abv}}</td>
+				        <td md-cell>{{beer.ibu}}</td>
+				      </tr>
+				    </tbody>
+				  </table>
+				</md-table-container>
 			</md-content>
 		</div>
 	</body>
