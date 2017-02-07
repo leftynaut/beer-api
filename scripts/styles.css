@@ -1,3 +1,11 @@
+h4 {
+    margin-bottom: .3em;
+}
+
+md-dialog-actions {
+    display: none !important;
+}
+
 .md-toolbar {
     text-align: center;
     background-color: #C04800 !important;
@@ -6,6 +14,16 @@
 .md-icon {
     background-color: #F79400 !important;
     border-color: #F09000 !important;
+}
+
+.md-button.md-primary {
+    color: #F79400 !important;
+}
+
+.beer-img {
+    float: right;
+    height: 10em;
+    padding: 0 0 1.1em 1.1em;
 }
 
 @media screen and (max-width: 500px) {
