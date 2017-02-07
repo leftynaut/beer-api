@@ -5,3 +5,16 @@
 .lightgrey {
   background-color: lightgrey
 }
+
+.beer-pic-container {
+  width: 100%;
+  text-align: center;
+}
+
+.beer-pic {
+  height: 100px;
+}
+
+/*#content {
+  width: 100%
+}*/
