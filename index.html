@@ -36,16 +36,16 @@
 			<md-content flex id="content">
 				<md-table-container>
 				  <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
-				    <thead md-head md-order="query.order" md-on-reorder="getBeers">
+				    <thead md-head md-order="myOrder" md-on-reorder="getBeers">
 				      <tr md-row>
-								<th md-column md-numeric>ID</th>
-				        <th md-column md-order-by="nameToLower"><span>Name</span></th>
-				        <th md-column md-numeric md-order-by="abv.value"><span>ABV</span></th>
+								<th md-column md-numeric md-order-by="'id'">ID</th>
+				        <th md-column md-order-by="'name'">Name</th>
+				        <th md-column md-numeric md-order-by="'abv'">ABV</th>
 				        <th md-column md-numeric>IBU</th>
 				      </tr>
 				    </thead>
 				    <tbody md-body>
-				      <tr md-row md-select="beer" md-select-id="name" md-auto-select ng-repeat="beer in brewList">
+				      <tr md-row md-select="beer" md-select-id="name" md-auto-select ng-repeat="beer in brewList | orderBy: myOrder">
 				        <td md-cell>{{beer.id}}</td>
 				        <td md-cell>{{beer.name}}</td>
 				        <td md-cell>{{beer.abv}}</td>
