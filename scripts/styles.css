@@ -1,12 +1,7 @@
-/*.beer-pic-container {
-  width: 100%;
+.md-toolbar {
   text-align: center;
+  background-color: #C04800 !important;
 }
-
-.beer-pic {
-  height: 100px;
-}*/
-
 
 @media screen and (max-width: 600px) {
   .hide-600 {
