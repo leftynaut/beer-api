@@ -2,6 +2,7 @@
 <html ng-app="webapp">
 
 	<head>
+		<title>Brews</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
@@ -39,16 +40,16 @@
 				    <thead md-head md-order="myOrder">
 				      <tr md-row>
 								<th md-column md-numeric md-order-by="'id'">ID</th>
-								<th md-column></th>
+								<!-- <th md-column></th> -->
 				        <th md-column md-order-by="'name'">Name</th>
 				        <th md-column md-numeric md-order-by="'abv'">ABV</th>
 				        <th md-column md-numeric>IBU</th>
 				      </tr>
 				    </thead>
 				    <tbody md-body>
-				      <tr md-row md-select="beer" md-on-select="logBeer" md-auto-select ng-repeat="beer in brewList | orderBy: myOrder">
+				      <tr md-row md-select="beer" md-on-select="popBeer" md-auto-select ng-repeat="beer in brewList | orderBy: myOrder">
 				        <td md-cell>{{beer.id}}</td>
-								<td md-cell><div class="beer-pic-container"><img src={{beer.image_url}} class="beer-pic" /></div></td>
+								<!-- <td md-cell><div class="beer-pic-container"><img src={{beer.image_url}} class="beer-pic" /></div></td> -->
 				        <td md-cell>{{beer.name}}</td>
 				        <td md-cell>{{beer.abv}}</td>
 				        <td md-cell>{{beer.ibu}}</td>

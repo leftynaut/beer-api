@@ -1,6 +1,6 @@
 angular
     .module('webapp', ['ngMaterial', 'ngMessages', 'ngResource', 'md.data.table'])
-    .controller('AppCtrl', ($scope, $http, $resource) => {
+    .controller('AppCtrl', ($scope, $http, $mdDialog) => {
       $scope.selected = [];
       $http({
         method : "GET",
@@ -14,6 +14,19 @@ angular
       });
       $scope.logBeer = (selection) => {
         console.log(`${selection.name} chosen`)
+      }
+      $scope.popBeer = (selection) => {
+        console.log(selection)
+        $mdDialog.show(
+          $mdDialog.alert()
+            .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(true)
+            .title(selection.name)
+            .textContent(selection.description)
+            .ariaLabel('Alert Dialog Demo')
+            .ok('Close')
+            .targetEvent(selection)
+        );
       }
     })
     .config(($mdThemingProvider) => {
