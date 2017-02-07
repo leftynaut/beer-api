@@ -1,34 +1,48 @@
 .md-toolbar {
-  text-align: center;
-  background-color: #C04800 !important;
+    text-align: center;
+    background-color: #C04800 !important;
+}
+
+.md-icon {
+    background-color: #F79400 !important;
+    border-color: #F09000 !important;
+}
+
+@media screen and (max-width: 500px) {
+    .hide-500 {
+        display: none;
+    }
+    .beer-name {
+        padding: 0 24px !important;
+    }
 }
 
 @media screen and (max-width: 600px) {
-  .hide-600 {
-    display: none;
-  }
+    .hide-600 {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 700px) {
-  .hide-700 {
-    display: none;
-  }
+    .hide-700 {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 800px) {
-  .hide-800 {
-    display: none;
-  }
+    .hide-800 {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 900px) {
-  .hide-900 {
-    display: none;
-  }
+    .hide-900 {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 1000px) {
-  .hide-1000 {
-    display: none;
-  }
+    .hide-1000 {
+        display: none;
+    }
 }

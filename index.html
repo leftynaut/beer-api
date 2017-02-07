@@ -1,71 +1,69 @@
 <!DOCTYPE html>
 <html ng-app="webapp">
 
-	<head>
-		<title>Brews</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<head>
+	<title>Brews</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
-		<link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.3/angular-material.css">
-		<link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css"/>
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-		<script type="text/javascript" src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.3/angular-material.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.js"></script>
-		<script type="text/javascript" src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.3/angular-material.css">
+	<link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+	<script type="text/javascript" src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.3/angular-material.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.js"></script>
+	<script type="text/javascript" src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
 
-		<link rel="stylesheet" href="scripts/styles.css">
-		<script type="text/javascript" src="scripts/app.js"></script>
-	</head>
+	<link rel="stylesheet" href="scripts/styles.css">
+	<script type="text/javascript" src="scripts/app.js"></script>
+</head>
 
-	<body ng-cloak layout="column" ng-controller="AppCtrl">
-		<md-toolbar class="md-toolbar">
-			<h2>Brews <md-icon>local_drink</md-icon></h2>
-		</md-toolbar>
+<body ng-cloak layout="column" ng-controller="AppCtrl">
+	<md-toolbar class="md-toolbar">
+		<h2>Brews <md-icon>local_drink</md-icon></h2>
+	</md-toolbar>
 
-		<div flex layout="row">
-			<!-- <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')"
+	<div flex layout="row">
+		<!-- <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')"
 									md-component-id="left" ng-click="app.toggleList()">
 			</md-sidenav> -->
-			<md-content flex id="content">
-				<md-table-container>
-				  <table md-table md-row-select ng-model="selected" md-progress="promise">
-				    <thead md-head md-order="myOrder">
-				      <tr md-row>
-								<th md-column md-order-by="'id'">ID</th>
-								<!-- <th md-column></th> -->
-				        <th md-column md-order-by="'name'">Name</th>
-								<th md-column class="hide-600">Tagline</th>
-								<th md-column class="hide-700">First Brewed</th>
-				        <th md-column md-numeric md-order-by="'abv'">ABV</th>
-				        <th md-column md-numeric>IBU</th>
-								<th md-column md-numeric class="hide-800">EBC</th>
-								<th md-column md-numeric class="hide-900">pH</th>
-								<th md-column md-numeric class="hide-1000">SRM</th>
-				      </tr>
-				    </thead>
-				    <tbody md-body>
-				      <tr md-row md-select="beer" md-on-select="popBeer" md-auto-select ng-repeat="beer in brewList | orderBy: myOrder">
-				        <td md-cell>{{beer.id}}</td>
-								<!-- <td md-cell><div class="beer-pic-container"><img src={{beer.image_url}} class="beer-pic" /></div></td> -->
-				        <td md-cell>{{beer.name}}</td>
-								<td md-cell class="hide-600">{{beer.tagline}}</td>
-								<td md-cell class="hide-700">{{beer.first_brewed}}</td>
-				        <td md-cell>{{beer.abv}}%</td>
-				        <td md-cell>{{beer.ibu}}</td>
-								<td md-cell class="hide-800">{{beer.ebc}}</td>
-								<td md-cell class="hide-900">{{beer.ph}}</td>
-								<td md-cell class="hide-1000">{{beer.srm}}</td>
-				      </tr>
-				    </tbody>
-				  </table>
-				</md-table-container>
-			</md-content>
-		</div>
-	</body>
+		<md-content flex id="content">
+			<md-table-container>
+				<table md-table md-row-select ng-model="selected" md-progress="promise">
+					<thead md-head md-order="myOrder">
+						<tr md-row>
+							<th md-column md-order-by="'id'" class="hide-500">ID</th>
+							<th md-column md-order-by="'name'" class="beer-name">Name</th>
+							<th md-column class="hide-600">Tagline</th>
+							<th md-column class="hide-700">First Brewed</th>
+							<th md-column md-numeric md-order-by="'abv'">ABV</th>
+							<th md-column md-numeric>IBU</th>
+							<th md-column md-numeric class="hide-800">EBC</th>
+							<th md-column md-numeric class="hide-900">pH</th>
+							<th md-column md-numeric class="hide-1000">SRM</th>
+						</tr>
+					</thead>
+					<tbody md-body>
+						<tr md-row md-select="beer" md-on-select="popBeer" md-auto-select ng-repeat="beer in brewList | orderBy: myOrder">
+							<td md-cell class="hide-500">{{beer.id}}</td>
+							<td md-cell class="beer-name">{{beer.name}}</td>
+							<td md-cell class="hide-600">{{beer.tagline}}</td>
+							<td md-cell class="hide-700">{{beer.first_brewed}}</td>
+							<td md-cell>{{beer.abv}}%</td>
+							<td md-cell>{{beer.ibu}}</td>
+							<td md-cell class="hide-800">{{beer.ebc}}</td>
+							<td md-cell class="hide-900">{{beer.ph}}</td>
+							<td md-cell class="hide-1000">{{beer.srm}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</md-table-container>
+		</md-content>
+	</div>
+</body>
 
 </html>
