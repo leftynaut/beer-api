@@ -34,16 +34,21 @@
 			<!-- <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')"
 									md-component-id="left" ng-click="app.toggleList()">
 			</md-sidenav> -->
-			<md-content id="content">
+			<md-content flex id="content">
 				<md-table-container>
 				  <table md-table md-row-select ng-model="selected" md-progress="promise">
 				    <thead md-head md-order="myOrder">
 				      <tr md-row>
-								<th md-column md-numeric md-order-by="'id'">ID</th>
+								<th md-column md-order-by="'id'">ID</th>
 								<!-- <th md-column></th> -->
 				        <th md-column md-order-by="'name'">Name</th>
+								<th md-column class="hide-600">Tagline</th>
+								<th md-column class="hide-700">First Brewed</th>
 				        <th md-column md-numeric md-order-by="'abv'">ABV</th>
 				        <th md-column md-numeric>IBU</th>
+								<th md-column md-numeric class="hide-800">EBC</th>
+								<th md-column md-numeric class="hide-900">pH</th>
+								<th md-column md-numeric class="hide-1000">SRM</th>
 				      </tr>
 				    </thead>
 				    <tbody md-body>
@@ -51,8 +56,13 @@
 				        <td md-cell>{{beer.id}}</td>
 								<!-- <td md-cell><div class="beer-pic-container"><img src={{beer.image_url}} class="beer-pic" /></div></td> -->
 				        <td md-cell>{{beer.name}}</td>
-				        <td md-cell>{{beer.abv}}</td>
+								<td md-cell class="hide-600">{{beer.tagline}}</td>
+								<td md-cell class="hide-700">{{beer.first_brewed}}</td>
+				        <td md-cell>{{beer.abv}}%</td>
 				        <td md-cell>{{beer.ibu}}</td>
+								<td md-cell class="hide-800">{{beer.ebc}}</td>
+								<td md-cell class="hide-900">{{beer.ph}}</td>
+								<td md-cell class="hide-1000">{{beer.srm}}</td>
 				      </tr>
 				    </tbody>
 				  </table>

@@ -1,20 +1,39 @@
-.lightblue {
-  background-color: lightblue
-}
-
-.lightgrey {
-  background-color: lightgrey
-}
-
-.beer-pic-container {
+/*.beer-pic-container {
   width: 100%;
   text-align: center;
 }
 
 .beer-pic {
   height: 100px;
+}*/
+
+
+@media screen and (max-width: 600px) {
+  .hide-600 {
+    display: none;
+  }
 }
 
-/*#content {
-  width: 100%
-}*/
+@media screen and (max-width: 700px) {
+  .hide-700 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .hide-800 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .hide-900 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .hide-1000 {
+    display: none;
+  }
+}
