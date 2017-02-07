@@ -10,27 +10,22 @@ angular
             $scope.brewList = response.data;
         }, (response) => {
             // if error
-            $scope.brewList = response.statusText;
+            $mdDialog.show(
+                $mdDialog.alert()
+                .clickOutsideToClose(true)
+                .title('Error accessing the Brewdog API')
+                .textContent('Check your internet connection and try again!')
+                .ok('OK')
+            );
         });
-        $scope.logBeer = (selection) => {
-            console.log(`${selection.name} chosen`)
-        }
         $scope.popBeer = (selection) => {
             console.log(selection)
             $mdDialog.show(
                 $mdDialog.alert()
-                .parent(angular.element(document.querySelector('#popupContainer')))
                 .clickOutsideToClose(true)
                 .title(selection.name)
                 .textContent(selection.description)
-                .ariaLabel('Alert Dialog Demo')
-                .ok('Close')
-                .targetEvent(selection)
+                .ok('CHEERS')
             );
         }
     })
-    .config(($mdThemingProvider) => {
-        $mdThemingProvider.theme('docs-dark', 'default')
-            .primaryPalette('yellow')
-            .dark();
-    });
